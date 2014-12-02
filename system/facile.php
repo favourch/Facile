@@ -25,7 +25,8 @@ class facile {
 
     private $page = 'index',
             $template ="",
-            $home_filter = ['index','/',''];
+            $template_data = [];
+
 
     /*
     |--------------------------------------------------------------------------
@@ -35,6 +36,7 @@ class facile {
     | The run method calls the dispatch() method and load the application
     |
     */
+
     public function run()
     {
 
@@ -54,17 +56,15 @@ class facile {
     */
     private function dispatch()
     {
-        //Instantiate Templates
-        $this->template = new template();
 
         //Set the default page title if no title is defined in the data
-        $this->template->title = SITE_NAME;
+        $this->title = SITE_NAME;
 
         //Set the default page meta description if no meta description is defined in the data
-        $this->template->meta_description = SITE_DESCRIPTION;
+        $this->meta_description = SITE_DESCRIPTION;
 
         //Set default page keywords is no meta keywords are defined in the data
-        $this->template->meta_keywords = SITE_KEYWORDS;
+        $this->meta_keywords = SITE_KEYWORDS;
 
 
 
@@ -76,14 +76,14 @@ class facile {
 
 
         //Send each variable in the page to the template
-        foreach($data as $k=>$v)
+        foreach($data as $data_key=>$data_value)
         {
-            $this->template->$k=$v;
+            $this->$data_key=$data_value;
         }
 
         //Generate the view
 
-       return  $this->template->make($user_page_template);
+       return  $this->make($user_page_template);
 
     }
 
@@ -243,6 +243,90 @@ class facile {
     */
         return $this->page;
 
+    }
+
+    /*
+    |--------------------------------------------------------------------------
+    | Make() Method
+    |--------------------------------------------------------------------------
+    |
+    | A method responsible for validating and generating request view template
+    | from the current theme
+    |
+    */
+    public function make($path=null)
+    {
+
+        //Initiate the template directory
+        $template_dir = is_facile_theme_dir(ASSETS_DIR.THEME) ? THEME : 'simplex';
+
+        //template to be used
+
+        $this->template = ASSETS_DIR.$template_dir.DS;
+
+        //Theme name used to grab only the name
+        define('CURRENT_THEME_NAME', $template_dir);
+
+        //Theme dir used for internal only
+        define('CURRENT_THEME_DIR', $this->template);
+
+        // Theme configuration file
+
+        if($theme_config = facile_check(CURRENT_THEME_DIR.CURRENT_THEME_NAME.'.json'))
+        {
+            define('THEME_CONFIG_FILE', $theme_config);
+        }
+
+        // Send variable to the template
+
+        foreach($this->template_data as $data=>$value)
+        {
+            $$data = $value;
+        }
+
+        if($path)
+        {
+
+            if(facile_check($this->template.$path.EXT))
+            {
+
+                return require_once $this->template . $path . EXT;
+            }
+        }
+
+
+        return require_once $this->template.'default'.EXT;
+
+    }
+
+
+    /*
+   |--------------------------------------------------------------------------
+   | Static Render()
+   |--------------------------------------------------------------------------
+   |
+   | Allows calling Facile view maker through instantiating the class statically
+   |
+   */
+
+    public static function render($path)
+    {
+        return self::make($path);
+    }
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | Magic Setter
+    |--------------------------------------------------------------------------
+    |
+    | PHP magic method to set template variables
+    |
+    */
+
+    public function __set($k, $v)
+    {
+        $this->template_data[$k] = $v;
     }
 
 

@@ -1,5 +1,8 @@
 <?php
 if(!defined('FACILE')) {die('Sorry direct access to this file not allowed');}
+
+echo get_facile_ascii_art();
+
 ?>
 
 <!DOCTYPE html>

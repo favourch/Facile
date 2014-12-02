@@ -369,7 +369,7 @@ function Redirect_to($location)
             {
                 case '404':
                     header('HTTP/1.0 404 File Not Found');
-                    $template = new \Sharif\Facile\template();
+                    $template = new \Sharif\Facile\facile();
                     $template->title = "Error 404 File Not Found";
                     $template->make('errors/404');
                     exit;
@@ -395,3 +395,21 @@ function facile_whitespace_slashes($var)
 {
     return trim($var,"\x00..\x20/");
 }
+
+
+## GET FACILE ASCII ART ###
+function get_facile_ascii_art()
+{
+    return <<<FACILEASCII
+    <!--
+    This website is powered by Facile
+         ___       __          ___
+        |__   /\  /  ` | |    |__
+        |    /~~\ \__, | |___ |___
+
+    http://github.com/sp01010011/facile
+    /-->
+FACILEASCII;
+}
+
+
