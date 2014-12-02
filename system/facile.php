@@ -222,8 +222,18 @@ class facile {
                // Only throw in the 404 error when the $url[0] is not empty
               //  Otherwise continue with default page
 
-                if(!empty($url[0]))
+                if(!empty($url[0])){
+
+                    if(is_dir(ROOT_DIR.$url[0]))
+                    {
+                        define('AT_403_ON_DIR',true);
+
+                        return Redirect_to(403);
+                    }
+
                     return Redirect_to(404);
+                }
+
 
                 //Terminate the url[0] here and continue with default page
                 unset($url[0]);
@@ -305,7 +315,7 @@ class facile {
    | Static Render()
    |--------------------------------------------------------------------------
    |
-   | Allows calling Facile view maker through instantiating the class statically
+   | Allows calling Facile view maker vi==
    |
    */
 
@@ -344,4 +354,4 @@ class facile {
     }
 
 
-} 
+}

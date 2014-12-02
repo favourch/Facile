@@ -62,7 +62,7 @@ function facile_check($path)
 {
    if(file_exists($path) && is_readable($path))
    {
-       return $path;
+       return true;
    }
 
     return false;
@@ -219,8 +219,13 @@ function is_facile_theme_dir($path)
 function link_to_asset($type, $assets=[], $fallback=null)
 {
     $asset_type = strtolower($type);
+
+    //Where to start the counter for generating automatic directory separators
+    $start = defined("AT_403_ON_DIR") ? 0 : 1;
+
     switch($asset_type)
     {
+
         case 'css':
             $css="<!--Facile assets auto-dump: Stylesheet //-->".PHP_EOL;
             if(count($assets) >=1){
@@ -232,7 +237,7 @@ function link_to_asset($type, $assets=[], $fallback=null)
                         //Generate separator tp link asset from relative path from current uri
                         $uri = count(get_facile_query_string());
                         $separator="";
-                        for($i=1; $i<$uri; $i++)
+                        for($i=$start; $i<$uri; $i++)
                         {
                             $separator.="../";
                         }
@@ -254,7 +259,7 @@ function link_to_asset($type, $assets=[], $fallback=null)
                         //Generate separator tp link asset from relative path from current uri
                         $uri = count(get_facile_query_string());
                         $separator="";
-                        for($i=0; $i<$uri; $i++)
+                        for($i=$start; $i<$uri; $i++)
                         {
                             $separator.="../";
                         }
@@ -266,9 +271,6 @@ function link_to_asset($type, $assets=[], $fallback=null)
     }
     return $fallback;
 }
-
-
-
 
 /*
 |--------------------------------------------
@@ -365,14 +367,30 @@ function Redirect_to($location)
     {
         if(is_numeric($location))
         {
+            $template = new \Sharif\Facile\facile();
+
             switch($location)
             {
                 case '404':
                     header('HTTP/1.0 404 File Not Found');
-                    $template = new \Sharif\Facile\facile();
                     $template->title = "Error 404 File Not Found";
-                    $template->make('errors/404');
+                    $template->header = "404";
+                    $template->body ="Woops, page not found.";
+
+                    $template->make('errors/default');
+
                     exit;
+
+                case '403':
+                    header('HTTP/1.0 403 Forbidden');
+                    $template->title = "Error 403 Forbidden Access";
+                    $template->header = "403";
+                    $template->body = "Woops, you're totally forbidden from here";
+
+                    $template->make('errors/default');
+
+                    exit;
+
             }
         }else{
             header("location: {$location}");
