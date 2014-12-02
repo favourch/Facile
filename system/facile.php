@@ -114,6 +114,33 @@ class facile {
             if(facile_readable_dir(PAGES.$url[0]))
             {
 
+                //Check to see if url one is setup
+                if(isset($url[1])){
+
+                    //If it is setup explode by page extension
+                    $eval_page_request = explode('.', facile_whitespace_slashes($url[1]));
+
+                    //Make sure the exploded var is two part file and extension
+                    if(count($eval_page_request)==2)
+                    {
+
+                        //Assign parts to a variables
+                        $final_page = $eval_page_request[0];
+                        $extension = $eval_page_request[1];
+
+                        //Test to see if evaluated extension is equal to one in config
+                        if($extension!=PAGE_EXTENSION)
+
+                            //If the extension is not the same, this has happened in error send to 404
+                            unset($url[1]);
+                        else
+
+                            //If the extension is the same as what is in config while than assign the file to the variable
+                            $url[1] = $final_page;
+                    }
+
+                }
+
                 //Set up the file to check
                 $file = PAGES.$url[0].DS.@$url[1];
 
@@ -144,12 +171,30 @@ class facile {
                 return Redirect_to(404);
 
 
-
-
             //Check to see if the URL[0] is still set
 
             if(isset($url[0]))
             {
+
+                //If it is setup explode by page extension
+                $eval_page_request = explode('.', facile_whitespace_slashes($url[0]));
+
+                //Make sure the exploded var is two part file and extension
+                if(count($eval_page_request)==2)
+                {
+
+                    //Assign parts to a variables
+                    $final_page = $eval_page_request[0];
+                    $extension = $eval_page_request[1];
+
+                    //Test to see if evaluated extension is equal to one in config
+                    if($extension==PAGE_EXTENSION) {
+                        //If the extension is the same as what is in config while than assign the file to the variable
+                        $url[0] = $final_page;
+                    }
+
+
+                }
 
 
                 //We have learned url index 0 still set, lets check if this is a file
@@ -211,7 +256,7 @@ class facile {
     */
     private function get_url()
     {
-        return explode('/',filter_var(trim(get('url'),"\x00..\x20/"), FILTER_SANITIZE_URL));
+        return explode('/',filter_var(facile_whitespace_slashes(get('url')), FILTER_SANITIZE_URL));
     }
 
 

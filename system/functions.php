@@ -186,13 +186,8 @@ function get_facile_query_string($fallback=[])
 function is_facile_theme_dir($path)
 {
     $err=0;
-    $facile_theme =[
-        'default.php',
-        '/css',
-        '/js',
-        'img',
-        '/css/styles.css'
-    ];
+
+    $facile_theme =['default.php','/css','/js','/img','/css/styles.css','/errors','/errors/404.php'];
 
     foreach($facile_theme as $req)
     {
@@ -387,5 +382,16 @@ function Redirect_to($location)
     return false;
 }
 
+/*
+|--------------------------------------------
+| facile_whitespace_slashes; function
+|--------------------------------------------
+| Redirects throughout the application and
+| renders error pages
+|
+*/
 
-
+function facile_whitespace_slashes($var)
+{
+    return trim($var,"\x00..\x20/");
+}

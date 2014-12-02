@@ -35,8 +35,6 @@ define('SITE_KEYWORDS', 'Facile PHP, PHP Templating Engine, PHP Micro Sites');
 
 define('TIME_ZONE',     'America/New_York');
 
-
-
 /*
 |--------------------------------------------------------------------------
 | Debug Mode
@@ -46,7 +44,6 @@ define('TIME_ZONE',     'America/New_York');
 | live website
 |
 */
-
 
 define('DEBUG_MODE', true);
 
@@ -80,6 +77,18 @@ define('THEME',         'simplex');  // define your default theme **simplex
 define('PARTIAL_DIR',   '/includes/'); // default includes
 
 
+/*
+|--------------------------------------------------------------------------
+| Static Look and Feel Page Extension
+|--------------------------------------------------------------------------
+|
+| If you like staticy feel and look for your pages setup and extension e.g.
+| html => facile/about-us.html or  facile/services/web-development.html
+|
+|
+*/
+
+define('PAGE_EXTENSION', 'html');
 
 /*
 |--------------------------------------------------------------------------
@@ -99,6 +108,9 @@ define('FLAT_STORAGE',  true);
 
 // Contents are stored in database
 define('DB_STORAGE',    false);
+
+
+
 
 
 /*
