@@ -120,50 +120,13 @@
     | connect to database, if successfully connects it will try to retrieve data
     | from the database, if error occurs will default to flat
     |
+    |
+    | *DATABASE STORAGE OPTION REMOVED DECEMBER 2, 2014 6:35 P.M. EST ~Sharif
+    |
     */
 
     //content are stored in flat file
     define('FLAT_STORAGE',  true);
-
-    // Contents are stored in database
-    define('DB_STORAGE',    false);
-
-
-
-
-
-    /*
-    |--------------------------------------------------------------------------
-    | Provide Database Information
-    |--------------------------------------------------------------------------
-    |
-    | Provide database information to connect to database, if info is not supplied
-    | the system will bypass this option all together and default to flat storage
-    | only fill the properties you know and leave the rest as default
-    |
-    */
-
-    // Type of database
-    define('DB_DRIVER',     'mysql');
-
-    //Name of your database
-    define('DB_NAME',       'facile');          # YOUR MUST KNOW
-
-    //Database host address **normally localhost
-    define('DB_HOST',       '127.0.0.1');
-
-    //Database username
-    define('DB_USER',       'root');            # YOUR MUST KNOW
-
-    //Database password
-    define('DB_PASS',       '');                # YOU MUST KNOW
-
-    //Database charset
-    define('DB_CHARSET',	'utf8');
-
-    //Database collation
-    define('DB_COLLATION', 	'utf8_unicode_ci');
-
 
 
     #   END OF USER CONFIGURATION />
