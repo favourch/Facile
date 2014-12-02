@@ -1,17 +1,17 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title><?=$title;?></title>
-    <style>
-        body{
-            background-color: red;
-        }
-    </style>
-</head>
-<body>
-<?=$content;?>
+<?php
+if(!defined('FACILE')) {die('Sorry direct access to this file not allowed');}
+
+include_facile('header',[
+    'title' => $title,
+    'meta_description'  => $meta_description,
+    'meta_keywords'     => $meta_keywords
+]);
+?>
+
+<section>
+    <?=@$content;?>
+</section>
 
 
-</body>
-</html>
+
+<?php include_facile('footer'); ?>

@@ -2,14 +2,17 @@
 if(!defined('FACILE')) {die('Sorry direct access to this file not allowed');}
 ?>
 
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title><?=htmlentities($title);?></title>
-    <meta name="description" content="<?=htmlentities($meta_description);?>">
-    <meta name="keywords" content="<?=htmlentities($meta_keywords);?>">
-    <?=link_to_asset('css',['css/styles.css']);?>
+    <meta name="description" contents="<?=htmlentities($meta_description);?>">
+    <meta name="keywords"    contents="<?=htmlentities($meta_keywords);?>">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="http://sharif.co/favicon.ico">
+    <?=link_to_asset('css',['css/styles.css']); ?>
 </head>
 <body>
-
+<div class="wrapper center-text">

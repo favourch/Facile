@@ -4,62 +4,35 @@ return [
 
     //Page header information
 
-    "title"             => 'Welcome to Facile',
-    'meta_description'  => 'Facile is a simple php templating engine',
-    'meta_keywords'     => 'Facile, PHP, Templating',
+    "title"             => 'Sharif | Portland Maine Freelance Web Developer and IT Professional',
+    'meta_description'  => 'IT Professional, passionate about coding for the web',
+    'meta_keywords'     => 'Web Developers, Web Designers, UI Designer, networking, security, system administrator, virtualization, computer repair, visual c#, PHP, SQL Server 2008, Windows Server, network penetration, ip/tcp, MySQL, Adobe Creative CS6, Microsoft Office, 3D Parametric Modeling, HTML5, CSS3, JavaScript/JQuery, Mac OS X and Apple Hardware, Various Linux OS, VMware Virtualization Products, Citrix Products, MSSQL',
     'meta_charset'      => 'utf-8',
+    'site_img'          => 'http://sharif.co/img/sharif.jpeg',
+    'site_title'        => 'SHARIF A.',
+    'site_description'  =>  'Web Developer &#0149; IT Professional  from  Portland, ME',
+    'section_who' =>    '
+                            <h3>Who?</h3>
+                            <p>Well my name is Abdikadir, but most call me <strong>Sharif</strong> (95%+ <i class="fa fa-line-chart"></i>), hence, moved from the old <a href="http://aqadir.com"> aqadir.com </a> to this shiny <strong>sharif.co</strong>.</p>
+                            <p>
+                            I am <strong>freelancer </strong> based in beautiful city of <strong> Portland, ME</strong>. I do both <strong> IT</strong> and <strong>Web Development</strong> work. During the process of what most refer to as <i>self-discovery</i>, i have made a breakthrough discrovery, that... <strong> i love c<i class="fa fa-code"></i>ding for the web </strong> more than everything else i\'ve been doing. I am very <strong>passionate</strong> about web <strong> technologies</strong> and <strong>modern</strong> development.
+                            </p>
+    ',
+    'section_what'  => '
+                            <h3>What?</h3>
+                            <p>I have experience in <strong>HTML5</strong>, <strong>CSS3</strong>, <strong>JavaScript</strong>, <strong><a href="http://php.net" target="_blank">PHP</a></strong>, <strong><a href="http://www.jquery.com" target="_blank">jQuery</a></strong>, <strong><a href="http://sass-lang.com" target="_blank">Sass</a> </strong> and <strong>Responsive Web Design</strong>. I\'ve had  experience with front-end frameworks like <strong><a href="http://foundation.zurb.com" target="_blank">Foundation</a></strong> and <strong><a href="http://getbootstrap.com" target="_blank">Bootstrap</a></strong>
+                            and Frameworks and CMS like <strong> Laravel</strong>, <strong>CodeIgniter</strong>, <strong> Wordpress</strong>, <strong> Joomla</strong>, <strong>Drupal</strong> and many more.
+
+                            <p>I am continuously learning new web technologies, and improving my skills. And it worth mentioning that i am very fond of <strong>Larevel</strong> framework and find myself exploring this amazing Framework and get inspired by its coding styles.</p>
+
+                            <p>Other skills <strong><a href="http://git-scm.com" target="_blank">Git</a></strong>, <strong><a href="http://github.com" target="_blank">GitHub</a></strong>, <strong><a href="http://www.mysql.com" target="_blank">MySQL</a></strong>, <strong>Photoshop</strong>, <strong>Illustrator</strong>, <strong><a href="http://emmet.io" target="_blank">Emmet</a></strong>, <strong>Markdown</strong>, and <strong>Web Standards</strong>.</p>
+    ',
 
     //Page content
-    'content'      => '
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, enim eveniet exercitationem harum ipsam nesciunt
-        nobis odit quo, reiciendis repellat sed sint vel voluptatum? Consectetur dolorem illum iure laboriosam magni maxime
-        molestiae perferendis saepe, vitae voluptatem! Aut consectetur deserunt eius enim eos maxime nostrum saepe soluta?
-        Delectus quis saepe vel?</p>
+    'section_projects'      => '
 
-    <p>Ab autem consequatur corporis dolorem doloribus ducimus excepturi ipsum iste laudantium necessitatibus nemo
-        recusandae reprehenderit repudiandae, sapiente, suscipit ut veniam. Aut facere facilis, odit quibusdam quos
-        veritatis. Aspernatur consectetur, cumque dolor dolorem dolorum eius ex ipsam itaque, laborum libero maxime nam nemo
-        nobis non nulla praesentium quas rem, veniam veritatis?</p>
-
-    <p>Aspernatur debitis dolor earum id incidunt, ipsam iste iusto labore libero maxime natus neque omnis pariatur
-        perspiciatis placeat possimus quaerat quos repudiandae saepe similique, ullam veniam vero. Accusantium amet animi at
-        autem, corporis cupiditate ea error harum laboriosam quia! Ab, facere inventore laboriosam laudantium numquam rerum
-        veniam. Aut harum, rerum.</p>
-
-    <p>Facilis harum impedit labore nulla, quos tenetur voluptatum. Consectetur dolorem natus quia sint tenetur. Adipisci
-        aliquid doloribus eius eos fuga iste minus non repellat voluptatum. Accusantium aut commodi consectetur ex, fugit id
-        iste molestiae non pariatur praesentium quidem saepe. Aliquid aperiam, culpa distinctio ea inventore ipsum
-        laboriosam modi suscipit veniam!</p>
-
-    <p>Minima, odit, reiciendis. Amet doloremque, iure laboriosam obcaecati odit officia optio soluta vel. Accusamus
-        architecto asperiores at atque autem blanditiis consectetur consequatur debitis, delectus deleniti eaque enim
-        expedita illum in inventore laborum maxime nisi nulla optio praesentium provident quo quos repudiandae saepe sed
-        sequi sit soluta temporibus vel veritatis voluptatum!</p>
-
-    <p>Architecto asperiores culpa eaque hic incidunt nemo non, numquam reiciendis suscipit vel. Accusamus accusantium
-        dolore dolorem earum facere, laborum modi numquam officiis quae, quam quo, voluptate. Alias amet, corporis error
-        esse facilis fuga hic libero maxime minus neque, nostrum nulla perferendis, perspiciatis quaerat reiciendis sequi
-        voluptatem? Modi nihil obcaecati optio?</p>
-
-    <p>Aliquid assumenda at blanditiis consequuntur dolores, eius exercitationem expedita ipsa itaque laboriosam laborum
-        mollitia officia pariatur possimus repellendus sed vitae? Est ipsum iure maiores optio repudiandae. Accusamus atque
-        corporis, debitis deserunt, ea earum eos explicabo illo inventore ipsum iusto minus nostrum nulla quaerat quam quis
-        quo ratione reprehenderit tempora ut.</p>
-
-    <p>Ab at consectetur eius impedit in. Adipisci beatae cumque, deleniti dicta expedita id ipsam maxime minus molestiae,
-        numquam soluta, tenetur totam velit. Aperiam cum dolore dolores maiores nostrum saepe veniam vero vitae voluptate.
-        Aut consequatur eligendi esse molestias rem rerum sunt tempore temporibus? Accusantium dolorem excepturi fuga maxime
-        quas voluptas.</p>
-
-    <p>Aliquam aperiam autem dicta id in laboriosam magnam minima neque nisi, nobis possimus repudiandae velit voluptas!
-        Amet animi asperiores at atque consequatur corporis culpa deleniti distinctio dolorum, excepturi facilis fugiat
-        fugit in ipsam, iure minus modi molestias nobis non numquam pariatur quas, reiciendis sed unde ut. Expedita nostrum
-        quae reiciendis?</p>
-
-    <p>Amet corporis cupiditate dignissimos, dolorem laborum maiores reiciendis sapiente sit velit voluptatum. Error maxime
-        minus quae rem? Aut autem, delectus deserunt doloremque minus natus voluptatem? Alias aspernatur beatae blanditiis
-        cupiditate distinctio fuga fugit illum, labore laudantium, neque nostrum officia officiis omnis perspiciatis
-        possimus quaerat repellendus repudiandae sed tempore voluptas voluptatibus!</p>
+                            <h3> Projects </h3>
+                            <p> There several projects I am currently working on that I do not want to disclose.  </p>
 
     '
 

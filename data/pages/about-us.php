@@ -12,7 +12,11 @@ return [
 
     //Page content
     'content'      => '
-        <p>About US Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, enim eveniet exercitationem harum ipsam nesciunt
+        <h1> Sample Data &raquo; Facile Templating</h1>
+        <hr>
+
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias, enim eveniet exercitationem harum ipsam nesciunt
         nobis odit quo, reiciendis repellat sed sint vel voluptatum? Consectetur dolorem illum iure laboriosam magni maxime
         molestiae perferendis saepe, vitae voluptatem! Aut consectetur deserunt eius enim eos maxime nostrum saepe soluta?
         Delectus quis saepe vel?</p>

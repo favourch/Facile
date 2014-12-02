@@ -27,8 +27,6 @@ class facile {
             $template ="",
             $home_filter = ['index','/',''];
 
-
-
     /*
     |--------------------------------------------------------------------------
     | Run method instantiates ths system
@@ -137,10 +135,20 @@ class facile {
             }
 
 
+            /*----------------------------------
+            |       THROW ERROR 404            |
+            | THE SHOULD BE NO $URL[1] HERE    |
+            ----------------------------------*/
+
+            if(isset($url[1]))
+                return Redirect_to(404);
+
+
+
 
             //Check to see if the URL[0] is still set
 
-            if(!empty($url[0]))
+            if(isset($url[0]))
             {
 
 
@@ -160,9 +168,34 @@ class facile {
 
             }
 
+            /*----------------------------------
+            |       THROW ERROR 404            |
+            | THE SHOULD BE NO $URL[0] HERE    |
+            ----------------------------------*/
+            if(isset($url[0])) {
+
+               // Only throw in the 404 error when the $url[0] is not empty
+              //  Otherwise continue with default page
+
+                if(!empty($url[0]))
+                    return Redirect_to(404);
+
+                //Terminate the url[0] here and continue with default page
+                unset($url[0]);
+            }
+
         }
 
-        //Return the full path of the requested and confirmed page without the file extension.
+
+    /*
+    |--------------------------------------------------------------------------
+    | RETURN PAGE LOCATION
+    |--------------------------------------------------------------------------
+    |
+    | Request processing completed, return the request without the file
+    | extension to the dispatch to be processed.
+    |
+    */
         return $this->page;
 
     }
@@ -178,7 +211,7 @@ class facile {
     */
     private function get_url()
     {
-        return explode('/',filter_var(rtrim(get('url'),'/'), FILTER_SANITIZE_URL));
+        return explode('/',filter_var(trim(get('url'),"\x00..\x20/"), FILTER_SANITIZE_URL));
     }
 
 

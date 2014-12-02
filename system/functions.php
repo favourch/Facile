@@ -6,7 +6,17 @@
  * @filesource system/functions.php
  *
  */
-//check $_POST
+
+
+/*
+|--------------------------------------------
+| post(); Function
+|--------------------------------------------
+|
+| Gets the value of $_POST[$var] or empty
+|
+*/
+
 function post($var)
 {
     if(isset($_POST[$var]))
@@ -18,7 +28,16 @@ function post($var)
 }
 
 
-//Check $_GET
+
+/*
+|--------------------------------------------
+| get(); Function
+|--------------------------------------------
+|
+| Get the value of $_GET[$var] or empty
+|
+*/
+
 function get($var)
 {
     if(isset($_GET[$var]))
@@ -30,7 +49,14 @@ function get($var)
 }
 
 
-//Check if file_exist and is readable
+/*
+|--------------------------------------------
+| facile_Check(); Function
+|--------------------------------------------
+|
+| Checks if given file exists and is readable
+|
+*/
 
 function facile_check($path)
 {
@@ -42,7 +68,18 @@ function facile_check($path)
     return false;
 }
 
-//check if its directory and not file and is readable
+
+
+/*
+|--------------------------------------------
+| facile_readable_dir(); Function
+|--------------------------------------------
+|
+| Check if path is a directory and is not a
+| file and is readable
+|
+*/
+
 
 function facile_readable_dir($path)
 {
@@ -55,7 +92,16 @@ function facile_readable_dir($path)
 }
 
 
-//Check if is file and not directory and is readable
+
+/*
+|--------------------------------------------
+| Facile_readable_file(); Function
+|--------------------------------------------
+|
+| Checks is path is a file and is readable and
+| the path is not a directory
+|
+*/
 
 function facile_readable_file($path)
 {
@@ -68,7 +114,16 @@ function facile_readable_file($path)
 }
 
 
-//Include if file exist and is readable
+
+/*
+|--------------------------------------------
+| Facile_get_file(); Function
+|--------------------------------------------
+|
+| Require in the file if it exists and is
+| readable
+|
+*/
 
 function facile_get_file($path, $fallback=null)
 {
@@ -81,9 +136,16 @@ function facile_get_file($path, $fallback=null)
 }
 
 
-/**
- * @return mixed
- */
+/*
+|--------------------------------------------
+| Get_base_uri(); function
+|--------------------------------------------
+|
+| Returns the base URI of the script with
+| right slash is trimmed off.
+|
+*/
+
 function get_base_uri()
 {
     return filter_var(rtrim($_SERVER['SCRIPT_NAME'],'index.php'), FILTER_SANITIZE_URL);
@@ -91,10 +153,15 @@ function get_base_uri()
 
 
 
-/**
- * @param array $fallback
- * @return array
- */
+/*
+|--------------------------------------------
+| get_facile_query_string(); Function
+|--------------------------------------------
+|
+| Returns the uri query string
+|
+*/
+
 function get_facile_query_string($fallback=[])
 {
     $url = filter_var(rtrim($_SERVER['QUERY_STRING'], '/'), FILTER_SANITIZE_URL);
@@ -105,10 +172,17 @@ function get_facile_query_string($fallback=[])
         return $fallback;
 }
 
-/**
- * @param $path
- * @return bool
- */
+
+/*
+|--------------------------------------------
+| is_facile_theme_dir(); function
+|--------------------------------------------
+|
+| Checks if given path is a valid facile theme
+| directory and has required theme contents
+|
+*/
+
 function is_facile_theme_dir($path)
 {
     $err=0;
@@ -138,13 +212,15 @@ function is_facile_theme_dir($path)
 
 }
 
-/**
- * Function to replace class link_to_asset, that will load public assets
- * @param $type
- * @param array $assets
- * @param null $fallback
- * @return null|string
- */
+/*
+|--------------------------------------------
+| link_to_asset(); function
+|--------------------------------------------
+|
+| Imports assets like stylesheet and javascript
+| into the facile pages.
+|
+*/
 function link_to_asset($type, $assets=[], $fallback=null)
 {
     $asset_type = strtolower($type);
@@ -155,6 +231,7 @@ function link_to_asset($type, $assets=[], $fallback=null)
             if(count($assets) >=1){
                 foreach($assets as $asset)
                 {
+
                     #ONLY INCLUDE ASSET IF EXISTS TO ELIMINATE 404 ERRORS
                     if(facile_check(CURRENT_THEME_DIR.$asset)) {
                         //Generate separator tp link asset from relative path from current uri
@@ -164,6 +241,8 @@ function link_to_asset($type, $assets=[], $fallback=null)
                         {
                             $separator.="../";
                         }
+
+
                         $css .= '<link rel="stylesheet" href="' . $separator .'assets/'.CURRENT_THEME_NAME.'/'.$asset . '">' . PHP_EOL;
                     }
                 }
@@ -194,11 +273,21 @@ function link_to_asset($type, $assets=[], $fallback=null)
 }
 
 
-/**
- * Function that will include view partial e.g. header, footer and other parts,
- * this function can be created in the themes file therefore if that is created than
- * that will be used instead.
- */
+
+
+/*
+|--------------------------------------------
+| include_facile() function
+|--------------------------------------------
+|
+| Function that will include view partial e.g.
+| header, footer and other parts,
+| this function can be created in the themes
+| file therefore if that is created than
+| that will be used instead.
+|
+*/
+
 if(!function_exists('include_facile'))
 {
     /**
@@ -232,7 +321,15 @@ if(!function_exists('include_facile'))
 }
 
 
-//get current theme configuration file
+
+/*
+|--------------------------------------------
+| get_theme_config(); function
+|--------------------------------------------
+| get current theme configuration file
+|
+*/
+
 
 function get_theme_config($format, $fallback=false)
 {
@@ -255,4 +352,40 @@ function get_theme_config($format, $fallback=false)
     return $fallback;
 
 }
+
+
+/*
+|--------------------------------------------
+| Redirect_to(); function
+|--------------------------------------------
+| Redirects throughout the application and
+| renders error pages
+|
+*/
+
+
+function Redirect_to($location)
+{
+    if($location)
+    {
+        if(is_numeric($location))
+        {
+            switch($location)
+            {
+                case '404':
+                    header('HTTP/1.0 404 File Not Found');
+                    $template = new \Sharif\Facile\template();
+                    $template->title = "Error 404 File Not Found";
+                    $template->make('errors/404');
+                    exit;
+            }
+        }else{
+            header("location: {$location}");
+            exit;
+        }
+    }
+    return false;
+}
+
+
 
