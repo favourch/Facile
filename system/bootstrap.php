@@ -27,9 +27,6 @@
     define('DS',            DIRECTORY_SEPARATOR);
     define('EXT',           '.php');
 
-    //Root
-    define('ROOT_DIR',      __DIR__.DS.'..'.DS);
-
     //System
     define('SYSTEM_DIR',    ROOT_DIR.DS.trim(CUSTOM_SYSTEM_DIR,"\x00..\x20/").DS);
     define('ASSETS_DIR',    ROOT_DIR.DS.trim(CUSTOM_ASSETS_DIR,"\x00..\x20/").DS);

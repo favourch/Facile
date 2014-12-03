@@ -52,7 +52,7 @@
     */
 
 
-    define('TIME_ZONE',     'America/New_York');
+    define('SYSTEM_TIME_ZONE',     'America/New_York');
 
     /*
     |--------------------------------------------------------------------------
@@ -121,13 +121,12 @@
     | connect to database, if successfully connects it will try to retrieve data
     | from the database, if error occurs will default to flat
     |
-    | *DATABASE STORAGE OPTION REMOVED DECEMBER 2, 2014 6:35 P.M. EST ~Sharif
+    | *DATABASE STORAGE OPTION BY DEFAULT DROPPED DECEMBER 2, 2014 6:35 P.M. EST ~Sharif
     |
     */
 
     //content are stored in flat file
     define('FLAT_STORAGE',  true);
-
 
     /*
     |--------------------------------------------------------------------------
@@ -138,30 +137,104 @@
     |
     */
 
-    // Custom Assets Directory - Relative to root
+
+
+    /*
+     |-------------------------------------------------------|
+     |              CUSTOM ASSETS DIRECTORY NAME             |
+     |-------------------------------------------------------|
+     |****** DON'T FORGET TO RENAME THE ACTUAL DIRECTORY ****|
+     | path relative to root e.g 'path/to/new/asset_dir'     |
+     |-------------------------------------------------------|
+    */
 
     define('CUSTOM_ASSETS_DIR', 'assets');  //default assets
 
-    // Custom Data Directory - Relative to root
+    /*
+     |-------------------------------------------------------|
+     |              CUSTOM DATA DIRECTORY NAME               |
+     |-------------------------------------------------------|
+     |****** DON'T FORGET TO RENAME THE ACTUAL DIRECTORY ****|
+     | path relative to root e.g 'path/to/new/dat_dir'       |
+     |-------------------------------------------------------|
+    */
+
     define('CUSTOM_DATA_DIR', 'data');      // default data
 
-
-    //Custom Pages Directory, must be in a subdirectory within data directory
-
+     /*
+     |-------------------------------------------------------|
+     |              CUSTOM DATA/PAGES DIRECTORY NAME         |
+     |-------------------------------------------------------|
+     |****** DON'T FORGET TO RENAME THE ACTUAL DIRECTORY ****|
+     | path must be a subdir of data_dir, can go several lev-|
+     | al deep e.g.'data_dir/path/to/new/pages_dir'          |
+     |-------------------------------------------------------|
+    */
     define('CUSTOM_PAGES_DIR', 'pages'); //Default pages
 
-    //Custom Widgets Directory - must in in a subdirectory within data directory
+
+
+    /*
+    |-------------------------------------------------------|
+    |              CUSTOM DATA/WIDGETS DIRECTORY NAME       |
+    |-------------------------------------------------------|
+    |****** DON'T FORGET TO RENAME THE ACTUAL DIRECTORY ****|
+    | path must be a subdir of data_dir, can go several lev-|
+    | al deep e.g.'data_dir/path/to/new/widgets_dir'        |
+    |-------------------------------------------------------|
+    */
 
     define('CUSTOM_WIDGETS_DIR', 'widgets');  //Default widgets
 
-    //Custom System Directory - Relative to root
+
+     /*
+     |-------------------------------------------------------|
+     |              CUSTOM SYSTEM DIRECTORY NAME             |
+     |-------------------------------------------------------|
+     |****** DON'T FORGET TO RENAME THE ACTUAL DIRECTORY ****|
+     | path relative to root e.g 'path/to/new/system_dir'    |
+     |-------------------------------------------------------|
+    */
+
     define('CUSTOM_SYSTEM_DIR', 'system'); //default system
+
+
+
+
+
+
 
     #   END OF USER CONFIGURATION />
 
-    /********************************************************************/
 
 
+
+
+
+
+
+
+    /*-------------------------------------------------------------|
+    |******************* S T O P   H E R E ************************|
+    |-------------------------------------------------------------*/
+
+
+
+
+
+
+    /*
+    |--------------------------------------------------------------------------
+    | APPLICATION ROOT DIRECTORY
+    |--------------------------------------------------------------------------
+    |                   **DO NOT MODIFY THIS OPTION***
+    | Root dir definition moved from bootstrap to index to allow system
+    | customization and being able to move any system components anywhere
+    | according to users customization without breaking the system.
+    |
+    */
+
+    define('ROOT_DIR', __DIR__.DIRECTORY_SEPARATOR);
 
     /*
     |--------------------------------------------------------------------------
@@ -172,7 +245,7 @@
     |
     */
 
-    require_once 'system/bootstrap.php';
+    require_once CUSTOM_SYSTEM_DIR.DIRECTORY_SEPARATOR.'bootstrap.php';
 
 
     /*
