@@ -56,7 +56,7 @@
     $system_load_error = [];
 
     //Load all th necessary file for the system to function
-    $load_facile_system_files = ['facile'.EXT, EXC_FUNCTIONS_NAME.EXT];
+    $load_facile_system_files = [EXC_FACILE_CLASS_NAME.EXT, EXC_FUNCTIONS_NAME.EXT];
 
     //Loop through all the required system files and make them available for system use
 

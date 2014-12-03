@@ -102,13 +102,13 @@
     | Static Look and Feel Page Extension
     |--------------------------------------------------------------------------
     |
-    | If you like staticy feel and look for your pages setup and extension e.g.
+    | If you like static feel and look for your pages setup and extension e.g.
     | html => facile/about-us.html or  facile/services/web-development.html
     |
     |
     */
 
-    define('PAGE_EXTENSION', 'html');
+    define('PAGE_EXTENSION', 'html');  //default html
 
     /*
     |--------------------------------------------------------------------------
@@ -200,37 +200,51 @@
 
 
 
-
-
-
-
     #   END OF USER CONFIGURATION />
 
 
 
     /*
     |--------------------------------------------------------------------------
-    | EXTREME SYSTEM CUSTOMIZATION
+    |       ╔═╗═╗ ╦╔╦╗╦═╗╔═╗╔╦╗╔═╗  ╔═╗╦ ╦╔═╗╔╦╗╔═╗╔╦╗╦╔═╗╔═╗╔╦╗╦╔═╗╔╗╔
+    |       ║╣ ╔╩╦╝ ║ ╠╦╝║╣ ║║║║╣   ║  ║ ║╚═╗ ║ ║ ║║║║║╔═╝╠═╣ ║ ║║ ║║║║
+    |       ╚═╝╩ ╚═ ╩ ╩╚═╚═╝╩ ╩╚═╝  ╚═╝╚═╝╚═╝ ╩ ╚═╝╩ ╩╩╚═╝╩ ╩ ╩ ╩╚═╝╝╚╝
     |--------------------------------------------------------------------------
-    | Extremely customize the system
+    | Extremely customize the system the way that you want to work with and the
+    | way that works for you. Remove all the default namings and directory
+    | structure to fit your project.
     |
     */
 
     //Rename functions file
-    define('EXC_FUNCTIONS_NAME', 'functions');
+    define('EXC_FUNCTIONS_NAME',        'functions');      //default functions
 
     //Rename bootstrap file name
-    define('EXC_BOOTSTRAP_NAME', 'bootstrap');
+    define('EXC_BOOTSTRAP_NAME',        'bootstrap');     //bootstrap
+
+
+     /*----------------------------------------------------------------------\
+     |-----------------------------------------------------------------------|
+     |              IT IS NOT ADVISABLE TO CHANGE FACILE CLASS NAME          |
+     |-----------------------------------------------------------------------|
+     \----------------------------------------------------------------------*/
+
+    //Rename facile class file
+    define('EXC_FACILE_CLASS_NAME',     'facile');        //default facile
 
 
 
 
 
-    /*-------------------------------------------------------------|
-    |******************* S T O P   H E R E ************************|
-    |-------------------------------------------------------------*/
+     /*------------------------------------------------------------
+                 ____ _____ ___  ____    _   _ _____ ____  _____
+                / ___|_   _/ _ \|  _ \  | | | | ____|  _ \| ____|
+                \___ \ | || | | | |_) | | |_| |  _| | |_) |  _|
+                 ___) || || |_| |  __/  |  _  | |___|  _ <| |___
+                |____/ |_| \___/|_|     |_| |_|_____|_| \_\_____|
 
-
+     *********DO NOT CHANGE ANY SETTINGS BEYOND THIS POINT*********
+     --------------------------------------------------------------*/
 
 
     /*
@@ -263,7 +277,7 @@
     | Bootstrap the Application
     |--------------------------------------------------------------------------
     |
-    |Require once Facile bootstrapper aka facilitator to init the application
+    | Require once Facile bootstrapper aka facilitator to init the application
     |
     */
 
