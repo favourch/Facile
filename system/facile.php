@@ -162,10 +162,14 @@ class facile {
             }
 
 
-            /*----------------------------------
+            /*
+            |----------------------------------|
+            |       ERROR HAS OCCURRED         |
+            |----------------------------------|
             |       THROW ERROR 404            |
             | THE SHOULD BE NO $URL[1] HERE    |
-            ----------------------------------*/
+            |----------------------------------|
+                                              */
 
             if(isset($url[1]))
                 return Redirect_to(404);
@@ -213,10 +217,14 @@ class facile {
 
             }
 
-            /*----------------------------------
-            |       THROW ERROR 404            |
-            | THE SHOULD BE NO $URL[0] HERE    |
-            ----------------------------------*/
+
+           /*---------------------------------\
+           |       ERROR HAS OCCURRED         |
+           |----------------------------------|
+           |       THROW ERROR 404            |
+           | THE SHOULD BE NO $URL[0] HERE    |
+           \---------------------------------*/
+
             if(isset($url[0])) {
 
                // Only throw in the 404 error when the $url[0] is not empty

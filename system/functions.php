@@ -296,7 +296,7 @@ if(!function_exists('include_facile'))
     function include_facile($partial, $params = [], $fallback = null)
     {
         //Request require file
-        $request =CURRENT_THEME_DIR.trim(PARTIAL_DIR,'/').DS. strtolower($partial) . EXT;
+        $request =CURRENT_THEME_DIR.facile_whitespace_slashes(PARTIAL_DIR).DS. strtolower($partial) . EXT;
 
         switch ($partial) {
             case $partial:

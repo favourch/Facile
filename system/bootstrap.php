@@ -31,17 +31,17 @@
     define('ROOT_DIR',      __DIR__.DS.'..'.DS);
 
     //System
-    define('SYSTEM_DIR',    ROOT_DIR.DS.'system'.DS);
-    define('ASSETS_DIR',    ROOT_DIR.DS.'assets'.DS);
-    define('DATA_DIR',      ROOT_DIR.DS.'data'.DS);
+    define('SYSTEM_DIR',    ROOT_DIR.DS.trim(CUSTOM_SYSTEM_DIR,"\x00..\x20/").DS);
+    define('ASSETS_DIR',    ROOT_DIR.DS.trim(CUSTOM_ASSETS_DIR,"\x00..\x20/").DS);
+    define('DATA_DIR',      ROOT_DIR.DS.trim(CUSTOM_DATA_DIR,"\x00..\x20/").DS);
 
     //Data
-    define('PAGES',         DATA_DIR.'pages'.DS);
-    define('WIDGETS',       DATA_DIR.'widgets'.DS);
+    define('PAGES',         DATA_DIR.trim(CUSTOM_PAGES_DIR,"\x00..\x20/").DS);
+    define('WIDGETS',       DATA_DIR.trim(CUSTOM_WIDGETS_DIR,"\x00..\x20/").DS);
 
     //Public
     define('PUBLIC_ROOT',  $get_public_uri);
-    define('PUBLIC_ASSETS',PUBLIC_ROOT.'assets/');
+    define('PUBLIC_ASSETS',PUBLIC_ROOT.trim(CUSTOM_ASSETS_DIR,"\x00..\x20/").'/');
 
     # END OF SYSTEM CONFIGURATION />
 
@@ -84,5 +84,5 @@
     }
 
 
-    $app = new \Sharif\Facile\facile();
+    $facile = new \Sharif\Facile\facile();
 

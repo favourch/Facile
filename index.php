@@ -93,7 +93,8 @@
     |
     */
 
-    define('PARTIAL_DIR',   '/includes/'); // default includes
+    // Custom Partial template file directory relative to themes root
+    define('PARTIAL_DIR',   'includes'); // default includes
 
 
     /*
@@ -120,7 +121,6 @@
     | connect to database, if successfully connects it will try to retrieve data
     | from the database, if error occurs will default to flat
     |
-    |
     | *DATABASE STORAGE OPTION REMOVED DECEMBER 2, 2014 6:35 P.M. EST ~Sharif
     |
     */
@@ -128,6 +128,34 @@
     //content are stored in flat file
     define('FLAT_STORAGE',  true);
 
+
+    /*
+    |--------------------------------------------------------------------------
+    | SYSTEM CUSTOMIZATION
+    |--------------------------------------------------------------------------
+    | The system customization will allow you to define your own data, assets,
+    | system directories locations and names.
+    |
+    */
+
+    // Custom Assets Directory - Relative to root
+
+    define('CUSTOM_ASSETS_DIR', 'assets');  //default assets
+
+    // Custom Data Directory - Relative to root
+    define('CUSTOM_DATA_DIR', 'data');      // default data
+
+
+    //Custom Pages Directory, must be in a subdirectory within data directory
+
+    define('CUSTOM_PAGES_DIR', 'pages'); //Default pages
+
+    //Custom Widgets Directory - must in in a subdirectory within data directory
+
+    define('CUSTOM_WIDGETS_DIR', 'widgets');  //Default widgets
+
+    //Custom System Directory - Relative to root
+    define('CUSTOM_SYSTEM_DIR', 'system'); //default system
 
     #   END OF USER CONFIGURATION />
 
@@ -155,7 +183,7 @@
     | Once application is successfully bootstrapped, run the application
     |
     */
-    $app->run();
 
+    $facile->run();
 
 
