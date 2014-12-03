@@ -197,7 +197,7 @@ function is_facile_theme_dir($path)
         }
     }
 
-   if($err=0)
+   if($err==0)
    {
        return true;
    }
@@ -243,7 +243,7 @@ function link_to_asset($type, $assets=[], $fallback=null)
                         }
 
 
-                        $css .= '<link rel="stylesheet" href="' . $separator .'assets/'.CURRENT_THEME_NAME.'/'.$asset . '">' . PHP_EOL;
+                        $css .= '<link rel="stylesheet" href="' . $separator .facile_whitespace_slashes(CUSTOM_ASSETS_DIR).'/'.CURRENT_THEME_NAME.'/'.$asset . '">' . PHP_EOL;
                     }
                 }
             }
@@ -263,7 +263,7 @@ function link_to_asset($type, $assets=[], $fallback=null)
                         {
                             $separator.="../";
                         }
-                        $js.='<script src="'.$separator.$asset.'"> </script>'.PHP_EOL;
+                        $js.='<script src="'.$separator.facile_whitespace_slashes(CUSTOM_ASSETS_DIR).'/'.CURRENT_THEME_NAME.'/'.$asset.'"> </script>'.PHP_EOL;
                     }
                 }
             }
