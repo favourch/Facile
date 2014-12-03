@@ -105,7 +105,7 @@ class facile {
         $this->page = PAGES.$this->page;
 
         //Get the URI Array Values
-        $url = $this->get_url();
+        $url = $this->parse_uri_collections();
 
         //Confirm that there is at array index
         if(count($url)>=1)
@@ -350,13 +350,13 @@ class facile {
 
     /*
     |--------------------------------------------------------------------------
-    | get_url method
+    | get_url method * Renamed parse_uri_collections()
     |--------------------------------------------------------------------------
     |
     | Parses the uri for the route method
     |
     */
-    private function get_url()
+    private function parse_uri_collections()
     {
         return explode('/',filter_var(facile_whitespace_slashes(get('url')), FILTER_SANITIZE_URL));
     }

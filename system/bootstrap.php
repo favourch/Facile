@@ -24,8 +24,6 @@
 
     //Helpers
     define('FACILE',        true);
-    define('DS',            DIRECTORY_SEPARATOR);
-    define('EXT',           '.php');
 
     //System
     define('SYSTEM_DIR',    ROOT_DIR.DS.trim(CUSTOM_SYSTEM_DIR,"\x00..\x20/").DS);
@@ -58,7 +56,7 @@
     $system_load_error = [];
 
     //Load all th necessary file for the system to function
-    $load_facile_system_files = ['facile'.EXT, 'functions'.EXT];
+    $load_facile_system_files = ['facile'.EXT, EXC_FUNCTIONS_NAME.EXT];
 
     //Loop through all the required system files and make them available for system use
 

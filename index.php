@@ -208,7 +208,19 @@
 
 
 
+    /*
+    |--------------------------------------------------------------------------
+    | EXTREME SYSTEM CUSTOMIZATION
+    |--------------------------------------------------------------------------
+    | Extremely customize the system
+    |
+    */
 
+    //Rename functions file
+    define('EXC_FUNCTIONS_NAME', 'functions');
+
+    //Rename bootstrap file name
+    define('EXC_BOOTSTRAP_NAME', 'bootstrap');
 
 
 
@@ -221,7 +233,17 @@
 
 
 
+    /*
+     |-------------------------------------------------------------------------
+     |  HELPERS ** DO NOT MODIFY
+     |-------------------------------------------------------------------------
+     */
 
+    //OS Directory separator short name
+    define('DS',            DIRECTORY_SEPARATOR);
+
+    //System file extension
+    define('EXT',           '.php');
 
     /*
     |--------------------------------------------------------------------------
@@ -234,7 +256,7 @@
     |
     */
 
-    define('ROOT_DIR', __DIR__.DIRECTORY_SEPARATOR);
+    define('ROOT_DIR', __DIR__.DS);
 
     /*
     |--------------------------------------------------------------------------
@@ -245,7 +267,7 @@
     |
     */
 
-    require_once CUSTOM_SYSTEM_DIR.DIRECTORY_SEPARATOR.'bootstrap.php';
+    require_once CUSTOM_SYSTEM_DIR.DS.EXC_BOOTSTRAP_NAME.EXT;
 
 
     /*
