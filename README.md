@@ -1,5 +1,5 @@
     
-### Checkout my other project [Replica](https://github,com/sp01010011/replica)
+### Checkout my other project [Replica](https://github.com/sp01010011/replica)
 Replica is more advanced, more secure, with more features than Facile Project.
     
     
